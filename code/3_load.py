@@ -4,13 +4,6 @@ import boto3
 from botocore.exceptions import ClientError
 
 def upload_file(file_name, bucket_name, object_name=None):
-    """Upload a file to an S3 bucket
-
-    :param file_name: Is a full path to the file to upload e.g. cache/file.csv 
-    :param bucket: Bucket to upload to. this should be ist356yournetid
-    :param object_name: S3 object name. this should be the file name without the cache/ prefix file.csv
-    :return: True if file was uploaded, else False
-    """
     # create resource
     s3 = boto3.resource('s3', 
         endpoint_url='https://play.min.io:9000',
@@ -40,5 +33,8 @@ def upload_file(file_name, bucket_name, object_name=None):
     return True
 
 if __name__ == '__main__':
-    #TODO: Write your load code here (remove pass first)
-    pass
+    files = ['cache/survey_dataset.csv', 'cache/annual_salary_adjusted_by_location_and_age.csv', 'cache/annual_salary_adjusted_by_location_and_education.csv']
+    bucket = "ist356admurphy"
+    for file in files:
+        obj = file.replace('cache/', '')
+        upload_file(file, bucket, obj)

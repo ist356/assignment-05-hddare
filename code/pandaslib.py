@@ -12,7 +12,7 @@ def extract_year_mdy(timestamp: str) -> int:
     use the datetime.strptime to parse the date and then extract the year
     '''
     try:
-        dt = datetime.strptime(timestamp, '%m/%d/%Y')
+        dt = datetime.strptime(timestamp, '%m/%d/%Y %H:%M:%S')
         return dt.year
     except ValueError:
         raise ValueError(f"Timestamp '{timestamp}' does not match the format 'MM/DD/YYYY'")

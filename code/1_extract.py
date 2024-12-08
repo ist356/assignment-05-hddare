@@ -3,6 +3,7 @@ import numpy as np
 import streamlit as st
 import pandaslib as pl
 import os
+from datetime import datetime
   
 #TODO Write your extraction code here
 
@@ -11,8 +12,9 @@ if not os.path.exists(cache_dir):
     os.makedirs(cache_dir)
 
 data = pd.read_csv('https://docs.google.com/spreadsheets/d/1IPS5dBSGtwYVbjsfbaMCYIWnOuRmJcbequohNxCyGVw/export?resourcekey=&gid=1625408792&format=csv') 
+data['Timestamp'] = data['Timestamp'].str.split(' ').str[0]
 data['year'] = data['Timestamp'].apply(pl.extract_year_mdy)
-data.to_csv('cache/survey.csv', index=False)
+data.to_csv('cache/data.csv', index=False)
 
 years = data['year'].unique()
 

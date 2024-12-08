@@ -1,7 +1,7 @@
 # Reflection
 
-Student Name:  name
-Sudent Email:  email
+Student Name:  Henry Dare
+Sudent Email:  hddare@syr.edu
 
 ## Instructions
 
@@ -23,3 +23,4 @@ Examples:
 
 `--- Reflection Below This Line ---`
 
+I found that the majority of the code we did for this assignment was fairly simple. Copilot played a major rule in the extract and transform files, especially with the longer lines of code. The biggest issue I had with this assignment was I had a small error in my pandaslib file with the extraction function. I didn't notice it until later on, and had confusion with the debugger as I thought the function that had the error was hardcoded. I rewrote the modified code in the actual 1_extract file, but of course this didn't get the test to work until I eventually modified it in pandaslib.py. This immediately fixed the code, and as I had everything else correct, all tests passed with no error.

@@ -5,21 +5,16 @@ import pandaslib as pl
 # TODO: Write your transformation code here
 
 ## Load from cache
-
-# load survey data from cache
 survey_data = pd.read_csv('cache/survey.csv')
-
-# load the states data from cache
 states_data = pd.read_csv('cache/states.csv')
 
-# load list of col data from cache
-cols = []
-for year in survey_data['year'].unique():
-    col = pd.read_csv(f'cache/col_{year}.csv')
-    cols.append(col)
+col1 = pd.read_csv('cache/col_2021.csv')
+col2 = pd.read_csv('cache/col_2022.csv')
+col3 = pd.read_csv('cache/col_2023.csv')
+col4 = pd.read_csv('cache/col_2024.csv')
 
 # combine all col data into one dataframe
-col_data = pd.concat(cols, ignore_index=True)
+col_data = pd.concat([col1, col2, col3, col4])
 
 # clean the country column
 survey_data['_country'] = survey_data['What country do you work in?'].apply(pl.clean_country_usa)
